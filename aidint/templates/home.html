@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+Project List:<br />
+<ul>
+{% for project in projects %}
+<li><a href="{% url project-detail project.id %}">{{ project.title }}</a></li>
+{% endfor %}
+</ul>
+
+Donor List:<br />
+{% for donor in donors %}
+{{ donor }}
+{% endfor %}
+
+Recipient List:<br />
+{% for recipient in recipients %}
+{{ recipient }}
+{% endfor %}
+
+Total Donation:<br />
+{% for donation in donations %}
+{{ donation }}
+{% endfor %}
+
+{% endblock %}

@@ -17,3 +17,6 @@ atlassian-ide-plugin.xml
 /aidint/local_settings.py
 /aidint/public/static
 /aidint/public/media
+
+# Database
+*.db

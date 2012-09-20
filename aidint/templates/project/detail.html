@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>{{ project.title }}</h1>
+<hr />
+{{ project.description }}
+<br />
+Budget : {{ project.budget }}
+<br />
+Timeline: {{ project.begin_on }} until {{ project.end_on }}
+<br />
+Photos:
+{% for cause in project.causes.all %}
+{{ cause.caption }}
+{% for photo in cause.photo_set.all %}
+<img src="{{ photo.image.url }}" />
+{% endfor %}
+{% endfor %}
+
+{% endblock %}
