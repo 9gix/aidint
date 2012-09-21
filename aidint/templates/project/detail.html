@@ -3,17 +3,16 @@
 {% block body %}
 <h1>{{ project.title }}</h1>
 <hr />
-{{ project.description }}
+{{ project.description|linebreaks }}
 <br />
-Budget : {{ project.budget }}
+<b>Budget :</b> {{ project.budget }}
 <br />
-Timeline: {{ project.begin_on }} until {{ project.end_on }}
+<b>Timeline:</b> {{ project.begin_on }} until {{ project.end_on }}
 <br />
-Photos:
 {% for cause in project.causes.all %}
-{{ cause.caption }}
+<h2>{{ cause.caption }}</h2>
 {% for photo in cause.photo_set.all %}
-<img src="{{ photo.preview.url }}" />
+<img src="{{ photo.preview.url }}" /><br />
 {% endfor %}
 {% endfor %}
 
