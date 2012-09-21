@@ -7,7 +7,7 @@
 <br />
 <b>Budget :</b> {{ project.budget }}
 <br />
-<b>Timeline:</b> {{ project.begin_on }} until {{ project.end_on }}
+<b>Timeline:</b> {{ project.begin_on|date:"d M Y" }} - {{ project.end_on|date:"d M Y" }}
 <br />
 {% for cause in project.causes.all %}
 <h2>{{ cause.caption }}</h2>
