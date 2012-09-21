@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
-Project List:<br />
+<h2>Project List:</h2>
 <ul>
 {% for project in projects %}
 <li><a href="{% url project-detail project.id %}">{{ project.title }}</a></li>
 {% endfor %}
 </ul>
-
-
+<p>AidInt is an initiative by Eugene. My objective is simple. Help the needy people by connecting the generous donor</p>
+<p>We are open for anyone who want to volunteer on any projects listed or website itself.</p>
+<p>Email me at <a href="mailto:yeo.eugene.oey@gmail.com">yeo.eugene.oey@gmail.com</a> if you're interested</p>
 {% endblock %}
