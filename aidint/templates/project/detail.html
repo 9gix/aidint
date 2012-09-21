@@ -13,7 +13,7 @@ Photos:
 {% for cause in project.causes.all %}
 {{ cause.caption }}
 {% for photo in cause.photo_set.all %}
-<img src="{{ photo.image.url }}" />
+<img src="{{ photo.preview.url }}" />
 {% endfor %}
 {% endfor %}
 
