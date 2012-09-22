@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
+    'django_extensions',
 
     'project',
     'donation',
