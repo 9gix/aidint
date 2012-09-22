@@ -1,19 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>{{ project.title }}</h1>
-<hr />
-{{ project.description|linebreaks }}
-<br />
-<b>Budget :</b> {{ project.budget }}
-<br />
-<b>Timeline:</b> {{ project.begin_on|date:"d M Y" }} - {{ project.end_on|date:"d M Y" }}
-<br />
-{% for cause in project.causes.all %}
-<h2>{{ cause.caption }}</h2>
-{% for photo in cause.photo_set.all %}
-<img src="{{ photo.preview.url }}" /><br />
-{% endfor %}
-{% endfor %}
-
+  {% load donation %}
+  {% donation_sum_for project as donation_sum %}
+  {% donation_list_for project as donation_list %}
+  <h1>{{ project.title }}</h1>
+  <hr />
+  {{ project.description|linebreaks }}
+  <br />
+  <b>Timeline:</b> {{ project.begin_on|date:"d M Y" }} - {{ project.end_on|date:"d M Y" }}
+  <br />
+  <b>Budget : </b> S$ {{ project.budget }}
+  <br />
+  <b>Total donation collected: </b> S$ {{ donation_sum }}
+  <ul>
+  {% for donation in donation_list %}
+    <li>S$ {{ donation.amount }} by {{ donation.donor }}</li>
+  {% endfor %}
+  </ul>
+  {% for cause in project.causes.all %}
+    <h2>{{ cause.caption }}</h2>
+    {% for photo in cause.photo_set.all %}
+      <img src="{{ photo.preview.url }}" /><br />
+    {% endfor %}
+  {% endfor %}
 {% endblock %}
