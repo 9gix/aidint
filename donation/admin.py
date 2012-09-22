@@ -1,4 +1,7 @@
 from django.contrib import admin
 from donation.models import Donation
+from django.contrib.contenttypes import generic
 
-admin.site.register(Donation)
+class DonationInline(generic.GenericTabularInline):
+    model = Donation
+    extra = 0
