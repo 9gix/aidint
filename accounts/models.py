@@ -9,7 +9,7 @@ class Company(models.Model):
     logo = models.ImageField(upload_to='company')
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, unique=True)
+    user = models.OneToOneField(User)
     company = models.ForeignKey(Company, null=True, blank=True)
     bio = models.TextField()
     address = models.CharField(max_length=250)
