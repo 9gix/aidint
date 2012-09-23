@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 class Company(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
@@ -15,3 +16,9 @@ class UserProfile(models.Model):
     address = models.CharField(max_length=250)
     contact = models.CharField(max_length=25)
     role = models.CharField(max_length=1, choices=(('D', 'Donor'),('R','Recipient')))
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
