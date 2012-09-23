@@ -125,6 +125,7 @@ INSTALLED_APPS = (
 
     'south',
     'django_extensions',
+    'registration',
 
     'project',
     'donation',
