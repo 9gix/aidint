@@ -1,0 +1,1 @@
+{{ site }} - Activate account within {{ expiration_days }} days
