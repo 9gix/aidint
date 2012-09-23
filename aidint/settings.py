@@ -115,6 +115,7 @@ FIXTURE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    # Django Contrib Apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -123,10 +124,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    # 3rd Party Apps
     'south',
     'django_extensions',
     'registration',
 
+    # Internal Apps
     'project',
     'donation',
     'accounts',
