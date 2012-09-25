@@ -15,6 +15,17 @@ DATABASES = {
     }
 }
 
+# Fabric Configuration
+FAB_CONFIGS = {
+    'prod': {
+        'SSH_KEY':'', # /home/user/.ssh/key.pem
+        'HOST':'', # eugene-yeo.me
+        'BRANCH':'', # master
+        'USER':'', # ec2-user
+        'PATH':'', # /home/ec2-user/projectpath
+    }
+}
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
